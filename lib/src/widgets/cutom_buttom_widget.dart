@@ -22,22 +22,35 @@ class CustomButtom extends StatelessWidget {
     final double width = (ancho==null) ? MediaQuery.of(context).size.width : ancho;
     final Text text = (texto==null) ? Text('') : texto;
 
-    return FlatButton(
-
-      child: Container(
-        height: (alto==null) ? MediaQuery.of(context).size.height * 0.4 : alto ,
-        width: width,
-        decoration: BoxDecoration(
-          gradient:(gradiente==null) ? null : LinearGradient(
-            begin: FractionalOffset(0.0,0.0),
-            end: FractionalOffset(0.4,0.0),
-            colors: [
-              Colors.white70,
-              (colorFondo==null) ? Theme.of(context).accentColor : colorFondo,
+    return Container(
+      height: (alto==null) ? MediaQuery.of(context).size.height * 0.4 : alto ,
+      width: width,
+      decoration: BoxDecoration(
+        boxShadow: <BoxShadow>[
+          BoxShadow(
+              color: Colors.black26,
+              blurRadius: 3.0,
+              offset: Offset(0.0,3.0),
+              spreadRadius: 1.0
+          )
+        ],
+          gradient:(gradiente==null||!gradiente) ? null : LinearGradient(
+              begin: FractionalOffset(0.0,0.0),
+              end: FractionalOffset(0.4,0.0),
+              colors: [
+                Colors.blueGrey,
+                (colorFondo==null) ? Theme.of(context).accentColor : colorFondo,
               ]
           ),
-          color: (colorFondo==null&&gradiente==null) ? Theme.of(context).accentColor : colorFondo,
-            borderRadius: BorderRadius.circular(20.0)
+          color: (colorFondo==null&&(gradiente==null||!gradiente)) ? Theme.of(context).accentColor : colorFondo,
+          borderRadius: BorderRadius.circular(15.0)
+      ),
+
+
+      child: FlatButton(
+        onPressed: onPressed,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15.0)
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -47,21 +60,19 @@ class CustomButtom extends StatelessWidget {
               child: imagen
             ),
             SizedBox(width: 20.0,),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                text,
-                Container(
-                    child:descripcion ,
-                  ),
-
-
-              ],
+            Flexible(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  text,
+                  descripcion
+                ],
+              ),
             )
           ],
         ),
       ),
-      onPressed: onPressed,
+
     );
   }
 }

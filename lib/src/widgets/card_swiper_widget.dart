@@ -3,7 +3,7 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter_page_indicator/flutter_page_indicator.dart';
 
 
-
+///Requieres flutter_swiper: package
 class CardSwiper extends StatelessWidget {
 
 

@@ -10,7 +10,7 @@ class BackgroundSquare extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height*0.4,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30.0),
+        borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30.0),bottomRight: Radius.circular(30.0)),
         color: color==null ? Theme.of(context).accentColor : color,
       ),
     );
