@@ -1,3 +1,4 @@
+import 'file:///C:/Users/enriq/AndroidStudioProjects/soy_donante/lib/src/widgets/background_widget.dart';
 import 'package:covidplasma/src/widgets/card_swiper_widget.dart';
 import 'package:covidplasma/src/widgets/country_dropdown.dart';
 import 'package:flutter/cupertino.dart';
@@ -45,6 +46,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Theme.of(context).backgroundColor,
       body: Stack(
         children: <Widget>[
+          BackgroundWidget(),
           BackgroundSquare(),
           // TODO Para dispositivos sin pestañas arriba, cambiar por container con un padding superior de  EdgeInsets.only(top: MediaQuery.of(context).size.height*0.06)
           SafeArea(
